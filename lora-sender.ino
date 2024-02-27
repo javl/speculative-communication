@@ -2,12 +2,13 @@
 #include <LoRa.h>
 void setup() {
   Serial.begin(9600);
-  while (!Serial);  //  Set loRa frequency 
+  // while (!Serial);  
+  LoRa.setPins(D8, 0, D1);
+
   //  433E6 for Asia
   //  866E6 for Europe
   //  915E6 for North America 
-  LoRa.setPins(D8, 0, D1);
-  if (!LoRa.begin(866E6)) {
+  if (!LoRa.begin(866E6)) { //  Set loRa frequency 
     Serial.println("Starting LoRa failed!");
     while (1);
   }
