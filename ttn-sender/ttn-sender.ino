@@ -35,7 +35,6 @@
 #include <hal/hal.h>
 #include <SPI.h>
 
-
 //
 // For normal use, we require that you edit the sketch to replace FILLMEIN
 // with values assigned by the TTN console. However, for regression tests,
@@ -67,7 +66,7 @@ void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8);}
 static const u1_t PROGMEM APPKEY[16] = { 0xE6, 0x74, 0x37, 0x18, 0xD0, 0x23, 0x8F, 0xEC, 0xDF, 0x1D, 0xD8, 0xF5, 0x6B, 0xCE, 0x65, 0x00 };
 void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16);}
 
-static uint8_t mydata[] = "Hello, world!";
+static uint8_t mydata[] = "Hello, world!!";
 static osjob_t sendjob;
 
 // Schedule TX every this many seconds (might become longer due to duty
@@ -75,7 +74,6 @@ static osjob_t sendjob;
 const unsigned TX_INTERVAL = 60;
 
 // Pin mapping
-// wemos
 const lmic_pinmap lmic_pins = {
     .nss = D8,
     .rxtx = LMIC_UNUSED_PIN,
@@ -202,8 +200,6 @@ void onEvent (ev_t ev) {
             break;
         case EV_JOIN_TXCOMPLETE:
             Serial.println(F("EV_JOIN_TXCOMPLETE: no JoinAccept"));
-            // Schedule next transmission
-            os_setTimedCallback(&sendjob, os_getTime()+sec2osticks(TX_INTERVAL), do_send);
             break;
 
         default:
@@ -229,40 +225,10 @@ void setup() {
     Serial.begin(9600);
     Serial.println(F("Starting"));
 
-    // #ifdef VCC_ENABLE
-    // // For Pinoccio Scout boards
-    // pinMode(VCC_ENABLE, OUTPUT);
-    // digitalWrite(VCC_ENABLE, HIGH);
-    // delay(1000);
-    // #endif
-
     // LMIC init
     os_init();
-    //os_init_ex(&lmic_pins);
     // Reset the MAC state. Session and pending data transfers will be discarded.
     LMIC_reset();
-    // LMIC_setClockError(MAX_CLOCK_ERROR * 30 / 100);
-    // Serial.println(LMIC.dn2Dr);
-    // LMIC.dn2Dr = DR_SF9;
-    // Serial.println(LMIC.dn2Dr);
-
-
-// Use a frequency in the g3 which allows 10% duty cycling.
-  // LMIC.freq = 869525000;
-  // Use a medium spread factor. This can be increased up to SF12 for
-  // better range, but then, the interval should be (significantly)
-  // raised to comply with duty cycle limits as well.
-  // LMIC.datarate = DR_SF7;
-  // Maximum TX power
-  // LMIC.txpow = 10;
-  // LMIC_setDrTxpow(DR_SF9, 8);
-
-  // disable RX IQ inversion
-  // LMIC.noRXIQinversion = true;
-  // This sets CR 4/5, BW125 (except for EU/AS923 DR_SF7B, which uses BW250)
-    LMIC.freq = 868100000;
-    LMIC_setDrTxpow(DR_SF7, 14);
-    LMIC.rps = updr2rps(LMIC.datarate);
 
     // Start job (sending automatically starts OTAA too)
     do_send(&sendjob);
