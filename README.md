@@ -10,3 +10,11 @@ In order to be able to program your `Wemos D1 Mini` you need to add the board to
 7. In the menu click `tools` > `board` > `board manager` and search for `esp8266`. Press install.
 8. When Arduino is done installing the files you can select the right device to use: `tools` > `board` > `ESP8266` > `Lolin (Wemos) D1 R2 & mini`
 9. Make sure you also select the right port. If in doubt, just unplug the board, check the list of port options, then plug the board back in and note which new port appeared.
+
+## Create a The Things Network account
+1. Go to [thethingsnetwork.org](https://www.thethingsnetwork.org/) and click the `sign up` button in the top right
+2. Select the `Join The Things Network` option on the left (not `Get started for free`)
+3. Confirm your email address via the email they'll send you and log in
+4. In the menu in the top right, click `console`
+5. Select the region you are in (e.g. `Europe 1`)
+6. In the menu bar select `Applications` to create your application.
