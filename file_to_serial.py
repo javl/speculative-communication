@@ -1,3 +1,5 @@
+""" This script sends the contents of a file to an Arduino over serial communication. """
+
 import serial
 import time
 

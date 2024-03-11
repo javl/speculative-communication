@@ -1,3 +1,6 @@
+// This script uses the LoRaWAN protocol to send a signal to The Things Network.
+// incoming data is read from the serial port and sent to TTN.
+
 #include <lmic.h>
 #include <hal/hal.h>
 #include <SPI.h>
@@ -6,17 +9,17 @@
 // first. When copying an EUI from ttnctl output, this means to reverse
 // the bytes. For TTN issued EUIs the last bytes should be 0xD5, 0xB3,
 // 0x70.
-static const u1_t PROGMEM APPEUI[8]={ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+static const u1_t PROGMEM APPEUI[8]={ FILLMEIN };
 void os_getArtEui (u1_t* buf) { memcpy_P(buf, APPEUI, 8);}
 
 // This should also be in little endian format, see above.
-static const u1_t PROGMEM DEVEUI[8]={ 0x6A, 0x53, 0x06, 0xD0, 0x7E, 0xD5, 0xB3, 0x70 };
+static const u1_t PROGMEM DEVEUI[8]={ FILLMEIN };
 void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8);}
 
 // This key should be in big endian format (or, since it is not really a
 // number but a block of memory, endianness does not really apply). In
 // practice, a key taken from ttnctl can be copied as-is.
-static const u1_t PROGMEM APPKEY[16] = { 0xE6, 0x74, 0x37, 0x18, 0xD0, 0x23, 0x8F, 0xEC, 0xDF, 0x1D, 0xD8, 0xF5, 0x6B, 0xCE, 0x65, 0x00 };
+static const u1_t PROGMEM APPKEY[16] = { FILLMEIN };
 void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16);}
 
 static uint8_t mydata[] = "Hello, world!!";
@@ -126,7 +129,7 @@ void setup() {
     Serial.begin(9600);
     while (!Serial) {
         // Wait for the serial port to be available
-    }; 
+    };
     Serial.println(F("Starting"));
 
     // LMIC init
