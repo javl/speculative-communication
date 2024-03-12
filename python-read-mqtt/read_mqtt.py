@@ -21,12 +21,15 @@ def on_message(client, userdata, msg):
     print("Topic: ", msg.topic)
     payload = json.loads(msg.payload)
     print("Payload: ", payload)
-    base64_message = payload['uplink_message']['frm_payload']
-    decoded_bytes_message = base64.b64decode(base64_message)
-    string_message = decoded_bytes_message.decode('utf-8')
-    print("Decoded frm_payload: ", string_message)
-    if string_message == 'Hello, world!!':
-        print("Message is correct!")
+    try:
+        base64_message = payload['uplink_message']['frm_payload']
+        decoded_bytes_message = base64.b64decode(base64_message)
+        string_message = decoded_bytes_message.decode('utf-8')
+        print("Decoded frm_payload: ", string_message)
+        if string_message == 'Hello, world!!':
+            print("Message is correct!")
+    except:
+        print("Error getting frm_payload")
 
 mqttclient = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
 mqttclient.on_connect = on_connect
