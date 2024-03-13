@@ -28,11 +28,15 @@ In order to be able to program your `Wemos D1 Mini` you need to add the board to
 5. In the menu in the top right, click `console` to get to your console dashboard.
 
 ### Create your application and login credentials
+We need to create an application on TTN. This application will be the place where we can access any data being sent from our node.
+
 1. In the menu bar select `Applications` and create your application.
 2. In the menu bar on the left select `integrations` > `MQTT`.
 3. At the bottom of the page, click `Generate new API key`
 
-### Add your node
+### Register your node to the application
+Now we need to add our node to the application. This gives us some codes we can paste into the Arduino project, which will let TTN know what application our node belongs to.
+
 1. Go to `applications` > select your application
 2. On the bottom right select `Register end device`
 3. For `input method` select `Enter end device specifics manually` and use these settings:
