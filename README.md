@@ -11,6 +11,9 @@ In order to be able to program your `Wemos D1 Mini` you need to add the board to
 8. When Arduino is done installing the files you can select the right device to use: `tools` > `board` > `ESP8266` > `Lolin (Wemos) D1 R2 & mini`
 9. Make sure you also select the right port. If in doubt, just unplug the board, check the list of port options, then plug the board back in and note which new port appeared.
 
+### Install the needed library
+Find and install "MCCI LoRaWAN LMIC Library" from the library manager.
+
 ## Getting started with The Things Network
 ### Create an account
 1. Go to [thethingsnetwork.org](https://www.thethingsnetwork.org/) and click the `sign up` button in the top right.

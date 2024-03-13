@@ -14,6 +14,8 @@ def on_connect(client, userdata, flags, reason_code, properties):
     print(f"Connected with result code: {reason_code}")
     client.subscribe(f"v3/{username}/devices/{device_id}/up")
 
+
+
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
     print("----------------------")
@@ -21,15 +23,14 @@ def on_message(client, userdata, msg):
     print("Topic: ", msg.topic)
     payload = json.loads(msg.payload)
     print("Payload: ", payload)
-    try:
-        base64_message = payload['uplink_message']['frm_payload']
-        decoded_bytes_message = base64.b64decode(base64_message)
-        string_message = decoded_bytes_message.decode('utf-8')
-        print("Decoded frm_payload: ", string_message)
-        if string_message == 'Hello, world!!':
-            print("Message is correct!")
-    except:
-        print("Error getting frm_payload")
+    base64_message = payload['uplink_message']['frm_payload']
+    decoded_bytes_message = base64.b64decode(base64_message)
+    string_message = decoded_bytes_message.decode('utf-8')
+    print("Decoded frm_payload: ", string_message)
+    if string_message == 'A':
+        print("Got an A, do thing one!")
+    elif string_message == 'B':
+        print("Got a B, do thing two!")
 
 mqttclient = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
 mqttclient.on_connect = on_connect
