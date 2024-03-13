@@ -45,10 +45,6 @@ Now we need to add our node to the application. This gives us some codes we can 
 2. On the bottom right select `Register end device`
 3. For `input method` select `Enter end device specifics manually` and use these settings:
 
-* Frequency plan: `Europe 863*871 MHz (SF9 for RX2 - recommmended)`
-* LoRaWAN version: `LoRaWAN Specification 1.0.3`
-* Regional Parameters version: `RP001 Regional Parameters 1.0.3 revision A`
-
 ![Device frequency settings](images/device_frequency_settings.png)
 
 4. For JoinEUI, just enter 8 pairs of zeroes: `00 00 00 00 00 00 00 00`
