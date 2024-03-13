@@ -17,11 +17,11 @@ In order to be able to program your `Wemos D1 Mini` you need to add the board to
 ![MCCI LoRaWAN LMIC Library](images/library.png)
 2. Now go into your Arduino libraries folder using Finder or Windows Explorer, and find the `MCCI LoRaWAN LMIC Library` folder. Inside is a folder called `project_config` with a single file called `lmic_project_config.h`. Open this file in some text editor.
 4. Find the line `#define CFG_eu868 1` and uncomment it by removing the `//` in front of it, and comment out the other frequency plans by adding `//` in front of them. This will make sure the library is set up for the European frequency plan. So the file will look like this:
- 
+
 ![File contents](images/library_config.png)
 
 
-## Getting started with The Things Network 
+## Getting started with The Things Network
 In order to use The Things Network (TTN) we need to create an account. From this account we can create an application which will allow us to start receiving data from devices.
 
 ### Create an account
@@ -48,11 +48,16 @@ Now we need to add our node to the application. This gives us some codes we can 
 * Frequency plan: `Europe 863*871 MHz (SF9 for RX2 - recommmended)`
 * LoRaWAN version: `LoRaWAN Specification 1.0.3`
 * Regional Parameters version: `RP001 Regional Parameters 1.0.3 revision A`
-* JoinEUI: `00 00 00 00 00 00 00 00`
-4. Press `confirm` next to the JoinEUI field
-5. Press `Generate` behind the DevEUI and APPKey fields
-6. The `End device ID` gets filled in automatically: replace this value with a human-0readable name, like `jaspers node`
-7. Press `Register end device` to finish
+
+![Device frequency settings](images/device_frequency_settings.png)
+
+4. For JoinEUI, just enter 8 pairs of zeroes: `00 00 00 00 00 00 00 00`
+5. Press `confirm` next to the JoinEUI field to have the next fields appear.
+6. Press `Generate` behind the `DevEUI` and `APPKey` fields to generate random values.
+7. The `End device ID` gets filled in automatically: replace this value with a human-readable name, like `my-wemos-node`. This will help you recognize your node in the interface.
+8. Press `Register end device` to finish
+
+![Device ID settings](images/device_ID_settings.png)
 
 You now have all information you need to start programming your Wemos D1 mini to send data to The Things Network. Specifically what you need to copy to the Arduino code are the `AppEUI`, `DevEUI` and `AppKey` values.
 
