@@ -14,8 +14,8 @@ In order to be able to program your `Wemos D1 Mini` you need to add the board to
 ### Install the Arduino LoRaWAN library
 1. Find and install "MCCI LoRaWAN LMIC Library" from the library manager.
 ![MCCI LoRaWAN LMIC Library](images/library.png)
-2. Now go into your Arduino libraries folder and find the `MCCI LoRaWAN LMIC Library` folder. Inside this folder, open the `project_config` folder and open the `lmic_project_config.h` file.
-3. Find the line `#define CFG_eu868 1` and uncomment it by removing the `//` in front of it, and comment out the other frequency plans by adding `//` in front of them. This will make sure the library is set up for the European frequency plan. So the file will look like this:
+2. Now go into your Arduino libraries folder using Finder or Windows Explorer, and find the `MCCI LoRaWAN LMIC Library` folder. Inside is a folder called `project_config` with a single file called `lmic_project_config.h`. Open this file in some text editor.
+4. Find the line `#define CFG_eu868 1` and uncomment it by removing the `//` in front of it, and comment out the other frequency plans by adding `//` in front of them. This will make sure the library is set up for the European frequency plan. So the file will look like this:
 ![File contents](images/library_config.png)
 
 
