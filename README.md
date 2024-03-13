@@ -1,16 +1,16 @@
 ## Setting up the Arduino IDE
-# Add the Wemos D1 mini to the list of available devices
+### Add the Wemos D1 mini to the list of available devices
 In order to be able to program your `Wemos D1 Mini` you need to add the board to the Arduino IDE:
 
 1. Open the Arduino IDE.
 2. Go to `File` > `Preferences`
 3. Locate the textfield labeled `Additional boards manager URLs` at the bottom of the preferences window
 4. If the field is empty, simply enter the following value: `http://arduino.esp8266.com/stable/package_esp8266com_index.json`
-5. If the field already has an URL in it (maybe you added a different device in the past) just put a comma `,` at the end of the existing value, and paste the above URL after it.
+5. If the field already has a URL in it (maybe you added a different device in the past) just put a comma `,` at the end of the existing value, and paste the above URL after it.
 6. Click OK to save the change and close the preferences window.
-7. In the menu click `tools` > `board` > `board manager` and search for `esp8266`. Press install.
+7. Open the Board Manager (`tools` > `board` > `board manager`) and search for `esp8266`. Click install.
 8. When Arduino is done installing the files you can select the right device to use: `tools` > `board` > `ESP8266` > `Lolin (Wemos) D1 R2 & mini`
-9. Make sure you also select the right port. When in doubt, just unplug the board, check the list of port options, then plug the board back in and note which new port appeared.
+9. To be able to upload make sure you select the right port. When in doubt, just unplug the board, check the list of port options, then plug the board back in and note which new port appeared.
 
 ### Install the Arduino LoRaWAN library
 1. Find and install "MCCI LoRaWAN LMIC Library" from the library manager.
@@ -21,13 +21,15 @@ In order to be able to program your `Wemos D1 Mini` you need to add the board to
 ![File contents](images/library_config.png)
 
 
-## Getting started with The Things Network
+## Getting started with The Things Network 
+In order to use The Things Network (TTN) we need to create an account. From this account we can create an application which will allow us to start receiving data from devices.
+
 ### Create an account
 1. Go to [thethingsnetwork.org](https://www.thethingsnetwork.org/) and click the `sign up` button in the top right.
-2. Select the `Join The Things Network` option on the left (not `Get started for free`).
+2. Select the `Join The Things Network` option on the left.
 3. Confirm your email address via the email they'll send you and log in.
 4. Select the region you are in (e.g. `Europe 1`).
-5. In the menu in the top right, click `console` to get to your console dashboard.
+5. In the menu in the top right, click `console` to get to your dashboard.
 
 ### Create your application and login credentials
 We need to create an application on TTN. This application will be the place where we can access any data being sent from our node.
