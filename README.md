@@ -11,8 +11,13 @@ In order to be able to program your `Wemos D1 Mini` you need to add the board to
 8. When Arduino is done installing the files you can select the right device to use: `tools` > `board` > `ESP8266` > `Lolin (Wemos) D1 R2 & mini`
 9. Make sure you also select the right port. If in doubt, just unplug the board, check the list of port options, then plug the board back in and note which new port appeared.
 
-### Install the needed library
-Find and install "MCCI LoRaWAN LMIC Library" from the library manager.
+### Install the Arduino LoRaWAN library
+1. Find and install "MCCI LoRaWAN LMIC Library" from the library manager.
+![MCCI LoRaWAN LMIC Library](images/library.png)
+2. Now go into your Arduino libraries folder and find the `MCCI LoRaWAN LMIC Library` folder. Inside this folder, open the `project_config` folder and open the `lmic_project_config.h` file.
+3. Find the line `#define CFG_eu868 1` and uncomment it by removing the `//` in front of it, and comment out the other frequency plans by adding `//` in front of them. This will make sure the library is set up for the European frequency plan. So the file will look like this:
+![File contents](images/library_config.png)
+
 
 ## Getting started with The Things Network
 ### Create an account
@@ -45,4 +50,4 @@ You now have all information you need to start programming your Wemos D1 mini to
 
 First, click the `<>` icon behind the `AppEUI` and `DevEUI` fields. The text `msb` and two little arrows appear. Click those arrows to change the format to `lsb` (this basically reverses the values which is needed by the Arduino library), then press the copy icon to copy the value to your clipboard and paste them into the right spot in the Arduino code.
 
-![alt text](images/keys.png)
+![Instructions on copying the keys](images/keys.png)
