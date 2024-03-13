@@ -1,5 +1,5 @@
 ## Setting up the Arduino IDE
-## Add the Wemos D1 mini to the list of available devices
+# Add the Wemos D1 mini to the list of available devices
 In order to be able to program your `Wemos D1 Mini` you need to add the board to the Arduino IDE:
 
 1. Open the Arduino IDE.
