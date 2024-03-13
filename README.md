@@ -9,7 +9,7 @@ In order to be able to program your `Wemos D1 Mini` you need to add the board to
 6. Click OK to save the change and close the preferences window.
 7. In the menu click `tools` > `board` > `board manager` and search for `esp8266`. Press install.
 8. When Arduino is done installing the files you can select the right device to use: `tools` > `board` > `ESP8266` > `Lolin (Wemos) D1 R2 & mini`
-9. Make sure you also select the right port. If in doubt, just unplug the board, check the list of port options, then plug the board back in and note which new port appeared.
+9. Make sure you also select the right port. When in doubt, just unplug the board, check the list of port options, then plug the board back in and note which new port appeared.
 
 ### Install the Arduino LoRaWAN library
 1. Find and install "MCCI LoRaWAN LMIC Library" from the library manager.
